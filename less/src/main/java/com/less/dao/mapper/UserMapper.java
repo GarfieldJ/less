@@ -1,0 +1,18 @@
+package com.less.dao.mapper;
+
+
+import com.less.dao.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+
+@Mapper
+public interface UserMapper {
+
+    // @Select("select * from user")
+    List<User> queryAllUsers();
+
+    int saveUser(User user);
+}

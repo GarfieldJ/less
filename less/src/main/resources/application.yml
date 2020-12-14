@@ -1,0 +1,33 @@
+# 应用访问端口
+server:
+  port: 8080
+
+spring:
+  # mysql数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://www.cherrycc.com:3306/springboot?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123456
+    druid:
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+
+
+
+#实体类扫描包
+mybatis:
+  # 配置Mapper.xml中使用(resultType、parameterType)实体的路径
+  typeAliasesPackage: com.less.dao.entity
+  # Mapper.xml文件扫描目录
+  mapperLocations: classpath:mapper/*.xml
+  # 驼峰命名
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql

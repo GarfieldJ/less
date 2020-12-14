@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class Alive {
-    @RequestMapping("/alive")
+    @RequestMapping(value = "/alive")
     public String isAlive() {
         return "Hello world!";
     }
