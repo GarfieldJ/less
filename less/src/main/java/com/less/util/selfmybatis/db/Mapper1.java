@@ -1,10 +1,9 @@
-package com.less.util.db;
+package com.less.util.selfmybatis.db;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 public class Mapper1 implements InvocationHandler {
     private Map<String, Mapper1> mappers;

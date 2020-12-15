@@ -1,4 +1,4 @@
-package com.less.util.db;
+package com.less.util.selfmybatis.db;
 
 
 import java.sql.SQLException;

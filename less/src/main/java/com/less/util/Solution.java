@@ -8,6 +8,8 @@ import java.io.*;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
@@ -20,8 +22,10 @@ public class Solution {
     static Logger log = LoggerFactory.getLogger(Solution.class);
     static java.util.logging.Logger log2 = java.util.logging.Logger.getLogger("TestLog");
     Executor pool2 = Executors.newSingleThreadExecutor();
-    public static void main(String[] args) throws InterruptedException, IOException {
 
+    public static void main(String[] args) throws InterruptedException, IOException, SQLException {
+
+        DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 
 
 //        MyMapper<User> myMapper = sqlSession.getMapper(MyMapper.class);

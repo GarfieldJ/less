@@ -1,4 +1,4 @@
-package com.less.util.io;
+package com.less.util.selfmybatis.io;
 
 import java.io.InputStream;
 

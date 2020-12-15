@@ -8,4 +8,6 @@ public interface UserService {
 
 
     List<User> queryAllUsers();
+
+    void saveUser(User user);
 }

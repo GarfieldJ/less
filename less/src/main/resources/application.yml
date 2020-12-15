@@ -1,8 +1,10 @@
-# 应用访问端口
-server:
-  port: 8080
+debug: false
 
 spring:
+  profiles:
+    active: dev
+  config:
+    location: classpath
   # mysql数据库
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,8 +16,6 @@ spring:
       initial-size: 1
       max-wait: 60000
 
-
-
 #实体类扫描包
 mybatis:
   # 配置Mapper.xml中使用(resultType、parameterType)实体的路径
@@ -25,9 +25,28 @@ mybatis:
   # 驼峰命名
   configuration:
     mapUnderscoreToCamelCase: true
+    lazy-loading-enabled: true
+    cache-enabled: true
 
 pagehelper:
   helperDialect: mysql
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+---
+# 产品环境
+server:
+  port: 8088
+  servlet:
+    context-path: /api
+spring:
+  profiles: prod
+---
+# 开发环境
+server:
+  port: 8080
+  servlet:
+    context-path: /
+spring:
+  profiles: dev

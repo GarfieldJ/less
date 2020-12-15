@@ -5,17 +5,17 @@
 <mapper namespace="com.less.dao.mapper.UserMapper">
 
 
-    <select id="queryAllUsers" resultType="User">
-        select * from user
-    </select>
+<!--    <select id="queryAllUsers" resultType="User">-->
+<!--        select * from user-->
+<!--    </select>-->
 
-    <insert id="saveUser" parameterType="User">
-        <selectKey>
-            select
-        </selectKey>
+<!--    <insert id="saveUser" parameterType="User">-->
+<!--        <selectKey keyProperty="id" keyColumn="id" resultType="int" order="AFTER">-->
+<!--            select last_insert_id();-->
+<!--        </selectKey>-->
 
-        insert into user(id, name, id_card, phone, password) values(#{id}, #{name}, #{idCard}, #{phone}, #{password})
+<!--        insert into user(name, id_card, phone, password) values(#{name}, #{idCard}, #{phone}, #{password})-->
 
-    </insert>
+<!--    </insert>-->
 
 </mapper>

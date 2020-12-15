@@ -1,4 +1,4 @@
-package com.less.util.db;
+package com.less.util.selfmybatis.db;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

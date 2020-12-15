@@ -3,6 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
+		<!-- spring-boot-starter-parent的父项目spring-boot-dependencies管理依赖版本 -->
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.3.6.RELEASE</version>
@@ -21,10 +22,7 @@
 	<dependencies>
 		<!-- springboot核心组件-->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-		<dependency>
+			<!-- spring-boot-starter-*将所有功能场景抽取成starter,使用时仅需要导入相关场景 -->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
@@ -63,13 +61,13 @@
 		<dependency>
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.mybatis.spring.boot</groupId>
+					<artifactId>mybatis-spring-boot-starter</artifactId>
+				</exclusion>
+			</exclusions>
 			<version>1.2.10</version>
-		</dependency>
-
-		<!--slf4j-->
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
 		</dependency>
 
 		<!--lombok-->
@@ -88,6 +86,7 @@
 	<build>
 		<plugins>
 			<plugin>
+				<!-- 打包成可执行jar -->
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
