@@ -3,6 +3,7 @@ package com.less.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 
 import java.io.*;
 import java.lang.reflect.InvocationHandler;
@@ -11,6 +12,8 @@ import java.lang.reflect.Proxy;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.*;
 
 
@@ -23,9 +26,12 @@ public class Solution {
     static java.util.logging.Logger log2 = java.util.logging.Logger.getLogger("TestLog");
     Executor pool2 = Executors.newSingleThreadExecutor();
 
+    public static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
     public static void main(String[] args) throws InterruptedException, IOException, SQLException {
 
-        DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 
 
 //        MyMapper<User> myMapper = sqlSession.getMapper(MyMapper.class);

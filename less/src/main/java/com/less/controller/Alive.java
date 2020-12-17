@@ -1,14 +1,21 @@
 package com.less.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import com.less.model.annotations.exception.SelfException;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class Alive {
 
+    /* 使用thymeleaf不能用@ResponseBody */
     @RequestMapping(value = "/alive")
     public String isAlive() {
-        return "Hello world!";
+       return "alive";
+    }
+
+    /* 使用thymeleaf不能用@ResponseBody */
+    @RequestMapping(value = "/testerror")
+    public String testError() {
+        throw new SelfException("error");
     }
 }

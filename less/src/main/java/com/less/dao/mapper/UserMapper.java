@@ -7,7 +7,6 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 
-@Mapper
 @CacheNamespace(blocking = true)
 public interface UserMapper {
 
@@ -18,11 +17,15 @@ public interface UserMapper {
             " #{idCard}, #{phone}, #{password})")
     @SelectKey(statement = "select last_insert_id()" , keyProperty="id", keyColumn="id", resultType=Integer.class,
             before=false)
-    void saveUser(User user);
+    int saveUser(User user);
 
     @Update(value= "update user set name=#{name}, id_card=#{idCard},phone=#{phone},password=#{password} where id = #{id}")
-    void updateUser(User user);
+    int updateUser(User user);
 
     @Delete(value= "delete from user where id = #{id}")
-    void deleteUser(int id);
+    int deleteUserById(int id);
+
+
+    @Select(value= "select * from user where id = #{id}")
+    User findUserById(int i);
 }

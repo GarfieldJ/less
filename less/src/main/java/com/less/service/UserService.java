@@ -10,4 +10,10 @@ public interface UserService {
     List<User> queryAllUsers();
 
     void saveUser(User user);
+
+    User findUserById(int id);
+
+    int updateUser(User user);
+
+    int deleteUserById(int id);
 }
